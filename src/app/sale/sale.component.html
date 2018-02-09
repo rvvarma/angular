@@ -1,0 +1,28 @@
+
+<h1>Add Sale
+  <a [routerLink]="['/salecreate']" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </a>
+</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>BalanceDueAmount</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Invoice Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.Customer.Name }}</td>
+        <td>{{ book.BalanceDueAmount }}</td>
+        <td>{{ book.Date }}</td>
+       <td>{{book.Status}}</td>
+
+<td>{{book.Number}}</td>
+        <td>Show Detail</td>
+      </tr>
+    </tbody>
+  </table>
