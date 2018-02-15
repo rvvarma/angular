@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./sale-detail.component.scss']
 })
 export class SaleDetailComponent implements OnInit {
-
+book:any;
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {

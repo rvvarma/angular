@@ -1,9 +1,14 @@
+
+
+
+
 <div id='cssmenu'>
+  <div style="background-color:#47c9af;"><h1><img id="loading" height="100px" width="100px" src="/assets//images/rotate.png"/>Anugrehaa</h1></div>
 <ul>
-   <li class='active'><a href='#'>Home</a></li>
-   <li><a routerLink='sale'>Sale</a></li>
-   <li><a routerLink='#'>Company</a></li>
-   <li><a href='#'>Contact</a></li>
+
+   <li [routerLinkActive]="['active']"> <a routerLink='sale'>Sale</a></li>
+   <li [routerLinkActive]="['active']"><a routerLink='purchase'>Purchase</a></li>
+   <li [routerLinkActive]="['active']"><a routerLink='timesheet'>Time Sheets</a></li>
 </ul>
 </div>
 <br>

@@ -95,3 +95,16 @@
 #cssmenu > ul > li > a:hover:after {
   background: #47c9af;
 }
+#loading {
+		-webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+

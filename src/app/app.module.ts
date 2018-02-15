@@ -8,13 +8,17 @@ import { SaleComponent } from './sale/sale.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SaleDetailComponent } from './sale-detail/sale-detail.component';
 import { SaleCreateComponent } from './sale-create/sale-create.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+import { TimesheetComponent } from './timesheet/timesheet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SaleComponent,
     SaleDetailComponent,
-    SaleCreateComponent
+    SaleCreateComponent,
+    PurchaseComponent,
+    TimesheetComponent
   ],
   imports: [
     BrowserModule,
