@@ -1,13 +1,122 @@
-<div class="container">
+<div class="row">
 
-<h1>{{ book.UID}}</h1>
-<dl class="list">
-  <dt>ISBN</dt>
-  <dd>{{ book.Number}}</dd>
-  <dt>Author</dt>
-  <dd>{{ book.BalanceDueAmount }}</dd>
-  <dt>Publisher</dt>
-  <dd>{{ book.Comment }}</dd>
+<br>
+<br>
+<button type="button" class="btn btn-lg" data-toggle="modal" data-target="#bootstrapModel" style="background-color:#47c9af;color:white;">Add New Sales</button>
+<br>
+<br>
+</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sale Heads</th>
+        <th>Account Name</th>
+        <th>Sale Amount</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+	  <td *ngIf="book.Description === EditRowId"><select id="Id1" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="book.Description" name="Id">  
+                           <option selected="" value=""></option>  
+                        <option [ngValue]="k.Name" *ngFor="let k of salesheads">  
+                            {{k.Name}}  
+                     </option>  
+                </select> </td>
+        <td *ngIf="book.Description !==EditRowId"  (click)="Edit(book.Description)">{{ book.Description }}</td>
+		
+		<td *ngIf="book.Description === EditRowId">  <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="book.Account.UID" [(ngModel)]="book.Account.Name" name="Id">  
+                           <option selected="" value=""></option>  
+                        <option [ngValue]="k.UID" [ngValue]="k.Name" *ngFor="let k of data3">  
+                            {{k.Name}}  
+                     </option>  
+                </select>  </td>
+		<td *ngIf="book.Description!==EditRowId"  (click)="Edit(book.Description)">{{ book.Account.Name}}</td>
+      
+		
+		
+		<td *ngIf="book.Description === EditRowId"><input type="text" class="form-control" [(ngModel)]="book.Total"></td>
+ <td *ngIf="book.Description!==EditRowId"  (click)="Edit(book.Description)">{{ book.Total}}</td>
 
-</dl>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+<div class="row">
+
+
+<!-- Modal section -->
+
+
+<div id="bootstrapModel" class="modal fade" role="dialog">
+
+
+  <div class="modal-dialog">
+
+
+    <!-- Modal content-->
+
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+        <h4 class="modal-title">Add Sales</h4>
+
+
+      </div>
+
+
+<!-- model body section -->
+
+
+      <div class="modal-body">
+
+
+          <select id="Id1" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="nameId1" name="Id" (change)="selectName1();">  
+                           <option selected="" value=""></option>  
+                        <option [ngValue]="k.Name" *ngFor="let k of salesheads">  
+                            {{k.Name}}  
+                     </option>  
+                </select> 
+	   
+	        <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="nameId" name="Id" (change)="selectName();">  
+                           <option selected="" value=""></option>  
+                        <option [ngValue]="k.UID" *ngFor="let k of data3">  
+                            {{k.Name}}  
+                     </option>  
+                </select> 
+	   <input type="text" class="form-control" placeholder="Sale Amount" [(ngModel)]="u3" id="usr3">
+	   
+
+
+      </div>
+
+
+      <div class="modal-footer">
+
+<button type="submit" class="btn btn-primary" data-dismiss="modal" >Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+</div>
+<pre>
+{{books | json}}
+</pre>
+
 </div>

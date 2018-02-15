@@ -10,6 +10,7 @@ import { SaleDetailComponent } from './sale-detail/sale-detail.component';
 import { SaleCreateComponent } from './sale-create/sale-create.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { TimesheetComponent } from './timesheet/timesheet.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { TimesheetComponent } from './timesheet/timesheet.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
