@@ -1,21 +1,23 @@
 
-<h1>Add Sale
-  <a [routerLink]="['/salecreate']" class="btn btn-default btn-lg">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-  </a>
-</h1>
+<div >
+
   <table class="table">
-    <thead>
+    <thead style="background-color:#47c9af;">
       <tr>
-        <th>Name</th>
-        <th>BalanceDueAmount</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Invoice Id</th>
+        <th style="color:white">Name</th>
+        <th style="color:white">BalanceDueAmount</th>
+        <th style="color:white">Date</th>
+        <th style="color:white">Status</th>
+        <th style="color:white">Invoice Id</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let book of books">
+    <input class="form-control" type="text" name="search" [(ngModel)]="filter">
+    <tr *ngFor="let book of books | paginate: { id: 'listing_pagination',
+                                                      itemsPerPage: 10,
+                                                      currentPage: page,
+                                                      totalItems: totalRec } |  filter:filter; let i = index">
         <td>{{ book.Customer.Name }}</td>
         <td>{{ book.BalanceDueAmount }}</td>
         <td>{{ book.Date }}</td>
@@ -24,5 +26,17 @@
 <td>{{book.Number}}</td>
         <td><a routerLink='/sale/{{book.UID}}'>Edit</a></td>
       </tr>
+
+
+
+
+
+
+
     </tbody>
+
   </table>
+
+  <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+</div>
+

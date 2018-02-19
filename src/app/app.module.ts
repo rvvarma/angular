@@ -11,7 +11,8 @@ import { SaleCreateComponent } from './sale-create/sale-create.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { TimesheetComponent } from './timesheet/timesheet.component';
 import { FormsModule } from '@angular/forms';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +20,16 @@ import { FormsModule } from '@angular/forms';
     SaleDetailComponent,
     SaleCreateComponent,
     PurchaseComponent,
-    TimesheetComponent
+    TimesheetComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
