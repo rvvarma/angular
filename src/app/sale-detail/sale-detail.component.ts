@@ -22,13 +22,7 @@ salesheads:any;
     this.getSaleDetail(this.route.snapshot.params['id']);
 
   }
- selectName() {
-        alert(this.nameId);
-    }
 
-	 selectName1() {
-        alert(this.nameId1);
-    }
 
   getSaleDetail(id) {
     let data=this.http.get('http://52.11.32.193:3001/sales/fd115c03-f9d8-4438-a3fb-7b58606eca6f/invoices/'+id);
