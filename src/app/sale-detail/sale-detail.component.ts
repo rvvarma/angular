@@ -3,20 +3,28 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { forkJoin } from "rxjs/observable/forkJoin";
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'app-sale-detail',
   templateUrl: './sale-detail.component.html',
   styleUrls: ['./sale-detail.component.scss']
 })
 export class SaleDetailComponent implements OnInit {
+	
+	
+
+	
 books:any;
 dependecies:any;
 Editable: boolean=false;
 EditRowId:any='';
 data3:any;
-
+nameId1:any;
 salesheads:any;
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+modal:any;
+  constructor(private route: ActivatedRoute, private http: HttpClient,private modalService: NgbModal) { }
 
   ngOnInit() {
     this.getSaleDetail(this.route.snapshot.params['id']);
@@ -40,14 +48,29 @@ salesheads:any;
 
 
   }
+     open(content) {
+   
+	  this.modalService.open(content).result.then((result) => {
+         console.log("closed");
+      }, (reason) => {
+         console.log("dismissed" );
+      });
+   }
+onSubmit(form){
+	var e="";
+    console.log("adding form values ");
+    console.log(this.data3);
+	for(var i=0;i<this.data3.length;i++){
+		console.log(this.data3[0].Name);
+		if(this.data3[i].Name==form.value.Id1)
+			e=this.data3[i].UID;
+	}
+	this.books.push({Description:form.value.Id,Account:{UID:e,Name:form.value.Id1},Total:form.value.id2})
 
+}
 
 Edit (val){
 	this.EditRowId=val;
 }
 
-onSubmit() {
-  //  console.log('you submitted value:', form);
-    alert("hii");
-  }
 }

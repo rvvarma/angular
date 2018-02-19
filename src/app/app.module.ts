@@ -12,6 +12,7 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { TimesheetComponent } from './timesheet/timesheet.component';
 import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+	NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
