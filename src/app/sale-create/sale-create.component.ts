@@ -51,11 +51,30 @@ onSubmit(form){
 		if(this.data3[i].Name==form.value.Id1)
 			e=this.data3[i].UID;
 	}
-	this.items.push({Description:form.value.Id,Account:{UID:e,Name:form.value.Id1},Total:form.value.id2})
+	this.items.push({Description:form.value.Id,Account:{UID:e,Name:form.value.Id1},Total:form.value.id2,TaxCode:{UID:"5c95f2e0-8224-4054-b364-3bdb090fd0a9"}})
 
 }
 
 Edit (val){
 	this.EditRowId=val;
+}
+
+send(){
+
+var date=document.getElementById('date').value;
+var str=document.getElementById('cus').value
+var r=str.split(" ");
+console.log({Date:date,Customer:{UID:r[1]},Lines:this.items});
+this.http.post('http://52.11.32.193:3001/sales/fd115c03-f9d8-4438-a3fb-7b58606eca6f/invoices', {Date:date,Customer:{UID:r[1]},Lines:this.items})
+      .subscribe(
+        res => {
+          console.log("success");
+        },
+        err => {
+          console.log(err);
+        }
+      )
+
+
 }
 }

@@ -2,16 +2,16 @@
 <p>
 
 
-  <select id="Id" #Id="ngModel" class="hideLabel form-control col-md-4" [(ngModel)]="nameId" name="Id1" >
+  <select id="Id" #Id="ngModel" class="hideLabel form-control col-md-4" [(ngModel)]="nameId" id="cus" name="Id1" >
     <option selected="" value=""></option>
-    <option [ngValue]="k.Name" *ngFor="let k of books">
+    <option [ngValue]="k.UID" *ngFor="let k of books">
       {{k.Name}}
     </option>
   </select>
 
-  <input type="date" class="form-control col-md-3">
+  <input type="date" id="date" class="form-control col-md-3">
 
-  <button type="button"  class="btn btn-sm col-md-2" style="background-color:#47c9af;color:white;" >Save</button>
+  <button type="button"  class="btn btn-sm col-md-2" (click)="send()" style="background-color:#47c9af;color:white;" >Save</button>
   <button type="button"  class="btn btn-sm col-md-2" data-toggle="modal"  (click)="open(content)" style="background-color:#47c9af;color:white;" >Add New</button>
 
 
