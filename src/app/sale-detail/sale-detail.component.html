@@ -1,13 +1,17 @@
 
 <br>
-<div class="row">
+
+
+<textarea ng-model="myTextarea"  class="col-md-4"> Customer Name : {{name.Customer.Name}} \\n Invoice number : {{name.Number}} \n Invoive date :{{name.Date}} \n Total Amount :{{name.TotalAmount}}</textarea>
+<br>
+<button type="button"  class="btn btn-sm col-md-2" style="background-color:#47c9af;color:white;" >Save</button>
+
 
 <br>
 <br>
+<br>
 <button type="button" class="btn btn-lg" data-toggle="modal"  (click)="open(content)" style="background-color:#47c9af;color:white;">Add New Sales</button>
-<br>
-<br>
-</div>
+
   <table class="table">
     <thead>
       <tr>
@@ -57,7 +61,7 @@
     </button>
   </div>
   <div class="modal-body">
-     
+
           <select id="Id1" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="nameId1" name="Id" >
                            <option selected="" value=""></option>
                         <option [ngValue]="k.Name" *ngFor="let k of salesheads">
@@ -79,8 +83,8 @@
                           <button type="submit" class="btn btn-primary"  data-dismiss="modal" >Add</button>
 
     <button type="button" class="btn btn-warning" (click)="c(addMountForm)">Close</button>
-	
-        
+
+
 
   </div>
   </form>

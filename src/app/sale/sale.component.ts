@@ -14,6 +14,7 @@ import * as _ from 'underscore';
 })
 export class SaleComponent implements OnInit {
   books: any;
+  list:any;
    private allItems: any[];
 
    totalRec : number;

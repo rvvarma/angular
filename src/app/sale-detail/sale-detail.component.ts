@@ -12,10 +12,10 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./sale-detail.component.scss']
 })
 export class SaleDetailComponent implements OnInit {
-	
-	
 
-	
+
+
+
 books:any;
 dependecies:any;
 Editable: boolean=false;
@@ -24,6 +24,8 @@ data3:any;
 nameId1:any;
 salesheads:any;
 modal:any;
+name:any;
+
   constructor(private route: ActivatedRoute, private http: HttpClient,private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -40,6 +42,7 @@ modal:any;
       // results[0] is our character
       // results[1] is our character homeworld
       this.books = results[0].Lines;
+      this.name=results[0];
 	  this.dependecies=results[1];
 
 	   this.data3=this.dependecies.Account;
@@ -49,7 +52,7 @@ modal:any;
 
   }
      open(content) {
-   
+
 	  this.modalService.open(content).result.then((result) => {
          console.log("closed");
       }, (reason) => {

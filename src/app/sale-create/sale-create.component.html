@@ -1,3 +1,104 @@
+
 <p>
-  sale-create works!
+
+
+  <select id="Id" #Id="ngModel" class="hideLabel form-control col-md-4" [(ngModel)]="nameId" name="Id1" >
+    <option selected="" value=""></option>
+    <option [ngValue]="k.Name" *ngFor="let k of books">
+      {{k.Name}}
+    </option>
+  </select>
+
+  <input type="date" class="form-control col-md-3">
+
+  <button type="button"  class="btn btn-sm col-md-2" style="background-color:#47c9af;color:white;" >Save</button>
+  <button type="button"  class="btn btn-sm col-md-2" data-toggle="modal"  (click)="open(content)" style="background-color:#47c9af;color:white;" >Add New</button>
+
+
 </p>
+
+
+
+<table class="table table-dark table-striped">
+  <thead style="background-color:#47c9af;">
+  <tr>
+    <th style="color:white">Name</th>
+    <th style="color:white">Account</th>
+    <th style="color:white">Amount</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let book of items">
+
+    <td *ngIf="book.Description === EditRowId"><select id="Id1" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="book.Description" name="Id">
+      <option selected="" value=""></option>
+      <option [ngValue]="k.Name" *ngFor="let k of salesheads">
+        {{k.Name}}
+      </option>
+    </select> </td>
+    <td *ngIf="book.Description !==EditRowId"  (click)="Edit(book.Description)">{{ book.Description }}</td>
+
+    <td *ngIf="book.Description === EditRowId">  <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="book.Account.UID" [(ngModel)]="book.Account.Name" name="Id">
+      <option selected="" value=""></option>
+      <option [ngValue]="k.Name " [ngValue]="k.Name" *ngFor="let k of data3">
+        {{k.Name}}
+      </option>
+    </select>  </td>
+    <td *ngIf="book.Description!==EditRowId"  (click)="Edit(book.Description)">{{ book.Account.Name}}</td>
+
+
+
+    <td *ngIf="book.Description === EditRowId"><input type="text" class="form-control" [(ngModel)]="book.Total" name="tp"></td>
+    <td *ngIf="book.Description!==EditRowId"  (click)="Edit(book.Description)">{{ book.Total}}</td>
+
+  </tr>
+
+
+
+
+
+
+  </tbody>
+
+</table>
+<ng-template #content let-c="close" let-d="dismiss">
+  <form (ngSubmit)="onSubmit(addMountForm)" #addMountForm="ngForm" >
+
+    <div class="modal-header" style="background-color=#47c9af;color:red">
+
+      <h4 class="modal-title" >Add Sales</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <select id="Id1" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="nameId1" name="Id" >
+        <option selected="" value=""></option>
+        <option [ngValue]="k.Name" *ngFor="let k of salesheads">
+          {{k.Name}}
+        </option>
+      </select>
+
+      <select id="Id" #Id="ngModel" class="hideLabel form-control" [(ngModel)]="nameId" name="Id1" >
+        <option selected="" value=""></option>
+        <option [ngValue]="k.Name" *ngFor="let k of data3">
+          {{k.Name}}
+        </option>
+      </select>
+      <input type="text" class="form-control" placeholder="Sale Amount" [(ngModel)]="u3" id="usr3" name="id2">
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary"  data-dismiss="modal" >Add</button>
+
+      <button type="button" class="btn btn-warning" (click)="c(addMountForm)">Close</button>
+
+
+
+    </div>
+  </form>
+</ng-template>
